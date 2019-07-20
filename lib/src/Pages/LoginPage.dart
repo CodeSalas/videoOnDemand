@@ -1,3 +1,4 @@
+import 'package:appmovieuplabs/src/Widget/FondoWidget.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -7,7 +8,7 @@ class LoginPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          _fondo(),
+          Fondo(),
           Positioned(
             top: 30,
             left: 110,
@@ -25,7 +26,7 @@ class LoginPage extends StatelessWidget {
                   SizedBox(
                     height: 50,
                   ),
-                  _botonLogin(),
+                  _botonLogin(context),
                   SizedBox(
                     height: 20,
                   ),
@@ -78,11 +79,13 @@ class LoginPage extends StatelessWidget {
       ),
     );  }
 
-  Widget _botonLogin() {
+  Widget _botonLogin(BuildContext context) {
     return Container(
       width: 250,
       child: RaisedButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.pushReplacementNamed(context, 'noticias');
+        },
         child: Text('LOG IN'),
       ),
     );
@@ -145,15 +148,5 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _fondo() {
-    return Container(
-      decoration: BoxDecoration(
-          gradient: LinearGradient(colors: [
-        Color.fromRGBO(181, 81, 98, 1.0),
-        Color.fromRGBO(59, 35, 68, 1.0)
-      ], begin: Alignment.topCenter)),
-      width: double.infinity,
-      height: double.infinity,
-    );
-  }
+
 }
